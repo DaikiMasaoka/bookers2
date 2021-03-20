@@ -1,5 +1,11 @@
 <div class="text-center">
   <h1>Editing Book</h1>
+  <% if @book.errors.any? %>
+      <%= @book.errors.count %>errors prohibited this obj from being saved:
+      <ul><% @book.errors.full_messages.each do |message| %></ul>
+      <li><%= message %></li>
+      <% end %>
+    <% end %>
   <%= form_with model:@book, local: true do |f| %>
   <h4>Title</h4>
   <%= f.text_field :title %>

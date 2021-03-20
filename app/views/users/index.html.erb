@@ -24,7 +24,9 @@
         </tbody>
       </table>
       <% if @user.id == current_user.id %>
-        <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+        <p><%= link_to edit_user_path(@user) do%>
+          <button type="button" class="btn btn-outline-secondary"><i class="fas fa-user-cog"></i></button>
+        <% end %></p>
       <% end %>
       <h1>New book</h1>
       <%= form_with model: @book, url:'/books', local:true do |f| %>
@@ -37,7 +39,7 @@
     </table>
 
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h1>Users</h1>
       <table class="table table-hover">
         <thead>
